@@ -8,10 +8,17 @@
 
 import UIKit
 
+public enum CalendarMethod: String {
+  case reply = "REPLY"
+  case cancelled = "CANCELLED"
+  case request = "REQUEST"
+}
+
 public class SwiftCal: NSObject {
 
     public var events = [CalendarEvent]()
     public var timezone: TimeZone?
+  public var method: CalendarMethod?
     
     @discardableResult public func addEvent(_ event: CalendarEvent) -> Int {
         
@@ -85,7 +92,18 @@ public class Read {
                 }
             }
 
-            calendarEvents.remove(at: 0)
+          var methodComponents: NSString?
+
+          let methodScanner = Scanner(string: calendarEvents.first!)
+          methodScanner.scanUpTo("METHOD:", into: nil)
+          methodScanner.scanUpTo("\r\n", into: &methodComponents)
+
+          let method = methodComponents?.components(separatedBy: ":").last
+
+          if let `method` = method {
+              calendar.method = CalendarMethod.init(rawValue: String(method))
+          }
+          calendarEvents.remove(at: 0)
         }
 
         for event in calendarEvents {

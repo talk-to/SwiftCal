@@ -47,7 +47,8 @@ class ICSEventParser: NSObject {
 
         guard let startDateString = startDate(from: icsString, timezone: timeZone),
             let endDateString = endDate(from: icsString, timezone: timeZone),
-            let uniqueId = uniqueIdentifier(from: icsString)
+            let uniqueId = uniqueIdentifier(from: icsString),
+            let timeStamp = timestamp(from: icsString)
             else { return nil }
         
         let startDateInfo = dateFormatter.dateFromICSString(icsDate: startDateString, calendarTimezone: calendarTimezone)
@@ -60,6 +61,7 @@ class ICSEventParser: NSObject {
         
         event.occurrenceDate = startDate
         event.isAllDay = startDateInfo.allDay
+        event.timeStamp = timeStamp
         
         let statusString = status(from: icsString)
         

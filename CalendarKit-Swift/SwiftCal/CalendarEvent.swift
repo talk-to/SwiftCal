@@ -58,6 +58,7 @@ public class CalendarEvent: NSObject {
     @objc public var startDate: Date?
     @objc public var endDate: Date?
     var occurrenceDate: Date?
+    public var timeStamp: String?
     @objc public var isAllDay: Bool = false
     
     public var status: EventStatus?
