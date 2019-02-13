@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.platform = :ios
   s.name         = 'SwiftCal'
-  s.version      = '1.0.0'
+  s.version      = '1.1.0'
   s.license      = { :type => 'MIT' }
   s.homepage     = 'https://github.com/superhuman/SwiftCal'
   s.authors      = 'Sanket Firodiya'
