@@ -52,15 +52,7 @@ def release(**options)
 
   replace_spec_version(podspec_path, current_version, new_version)
 
-  directory_path = Dir.pwd
-  Dir.chdir "./KalYug/Classes/UserInterface/scripts" do
-    puts "Starting Localization..."
-    sh "sh localize.sh #{directory_path}/KalYug/Assets"
-  end
-  
-  sh "git add *.strings"
-  sh "git add KalYug.podspec"
-  sh "git commit -m 'Release #{new_version}'"
+  sh "git commit #{podspec_path} -m 'Release #{new_version}'"
   sh "git tag #{new_version}"
   sh "git push origin master"
   sh "git push origin #{new_version}"
@@ -121,7 +113,7 @@ def colorize(text, color_code)
     "\e[#{color_code}m#{text}\e[0m"
   else
     text
-  end
+ end
 end
 
 def red(text); colorize(text, 31); end
