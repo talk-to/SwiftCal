@@ -1,13 +1,13 @@
-Pod::Spec.new do |spec|
-  spec.platform = :ios
-  spec.name         = 'SwiftCal'
-  spec.version      = '1.0.0'
-  spec.license      = { :type => 'MIT' }
-  spec.homepage     = 'https://github.com/superhuman/SwiftCal'
-  spec.authors      = 'Sanket Firodiya'
-  spec.summary      = 'A set of classes used to parse and handle iCalendar (.ICS) files'
-  spec.source       = { :git => 'https://github.com/superhuman/SwiftCal.git', :tag => '1.0.0' }
-  spec.source_files = 'CalendarKit-Swift/SwiftCal/*.swift'
-  spec.frameworks = 'UIKit', 'Foundation'
-  spec.requires_arc = true
+Pod::Spec.new do |s|
+  s.platform = :ios
+  s.name         = 'SwiftCal'
+  s.version      = '1.0.0'
+  s.license      = { :type => 'MIT' }
+  s.homepage     = 'https://github.com/superhuman/SwiftCal'
+  s.authors      = 'Sanket Firodiya'
+  s.summary      = 'A set of classes used to parse and handle iCalendar (.ICS) files'
+  s.source       = { :git => 'https://github.com/superhuman/SwiftCal.git', :tag => '1.0.0' }
+  s.source_files = 'CalendarKit-Swift/SwiftCal/*.swift'
+  s.frameworks = 'UIKit', 'Foundation'
+  s.requires_arc = true
 end
