@@ -399,6 +399,8 @@ class ICSEventParser: NSObject {
     }
     
     private static func attendee(from icsString: String) -> EventAttendee? {
+      var icsString = icsString
+      icsString.removeAll(where: { $0 == "\r" })
         
         var eventScanner = Scanner(string: icsString)
         var url, attributesNS: NSString?
