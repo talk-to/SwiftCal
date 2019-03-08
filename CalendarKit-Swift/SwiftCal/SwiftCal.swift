@@ -11,6 +11,7 @@ import UIKit
 public enum CalendarMethod: String {
   case reply = "REPLY"
   case cancelled = "CANCELLED"
+  case cancel = "CANCEL"
   case request = "REQUEST"
 }
 
