@@ -484,7 +484,7 @@ class ICSEventParser: NSObject {
       var keepTrackingId = true
       while keepTrackingId {
         var tempString: NSString?
-        eventScanner.scanUpTo("\r\n", into: &temp)
+        eventScanner.scanUpTo("\r\n", into: &tempString)
         if let tempString = tempString, !tempString.contains(":") {
           uniqueIdString = uniqueIdString?.appending(
             tempString.trimmingCharacters(in: .whitespacesAndNewlines)
