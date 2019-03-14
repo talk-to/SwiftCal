@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.ios.deployment_target = '11.0'
   s.name         = 'SwiftCal'
-  s.version      = '1.2.0'
+  s.version      = '1.2.1'
   s.license      = { :type => 'MIT' }
   s.homepage     = 'https://github.com/talk-to/SwiftCal'
   s.authors      = 'Sanket Firodiya, Ajay Mann'
