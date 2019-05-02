@@ -479,13 +479,14 @@ class ICSEventParser: NSObject {
     eventScanner.scanUpTo("\r\n", into: &continuedID)
 
     if let continuedString = continuedID?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines),
-      !continuedString.contains(":") {
+      !continuedString.contains(":"), !continuedString.contains(";"), !continuedString.contains("=") {
       uniqueIdString = uniqueIdString?.appending(continuedString) as NSString?
       var keepTrackingId = true
       while keepTrackingId {
         var tempString: NSString?
         eventScanner.scanUpTo("\r\n", into: &tempString)
-        if let tempString = tempString, !tempString.contains(":") {
+        if let tempString = tempString, !tempString.contains(":"),
+          !continuedString.contains(";"), !continuedString.contains("=") {
           uniqueIdString = uniqueIdString?.appending(
             tempString.trimmingCharacters(in: .whitespacesAndNewlines)
             ) as NSString?
